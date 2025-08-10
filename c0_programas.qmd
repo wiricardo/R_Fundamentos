@@ -4,7 +4,7 @@
 
 ![](images/R_logo.png)
 
-R es un entorno y lenguaje de programación con un enfoque al análisis estadístico. Primero debemos instalar el R (el software estadístico), el cual lo podemos descargar en el siguiente enlace:
+.R es un entorno y lenguaje de programación con un enfoque al análisis estadístico. Primero debemos instalar el R (el software estadístico), el cual lo podemos descargar en el siguiente enlace:
 
 [Haz click aquí para descargar R](https://cran.r-project.org/bin/windows/base/)
 
