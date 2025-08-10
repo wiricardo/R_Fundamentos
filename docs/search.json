@@ -44,7 +44,7 @@
     "href": "c0_programas.html",
     "title": "Instalación de software",
     "section": "",
-    "text": "R, un lenguaje de programación\nR es un entorno y lenguaje de programación con un enfoque al análisis estadístico. Primero debemos instalar el R (el software estadístico), el cual lo podemos descargar en el siguiente enlace:\nHaz click aquí para descargar R\nLa versión más reciente, al 14 de julio del 2024, es la 4.4.1.\nRecuerda que R es un software libre por eso otorga a los usuarios la libertad de usar, estudiar, modificar y distribuir el código fuente. Estas libertades permiten colaboración y mejora continua del software por parte de la comunidad.",
+    "text": "R, un lenguaje de programación\n.R es un entorno y lenguaje de programación con un enfoque al análisis estadístico. Primero debemos instalar el R (el software estadístico), el cual lo podemos descargar en el siguiente enlace:\nHaz click aquí para descargar R\nLa versión más reciente, al 14 de julio del 2024, es la 4.4.1.\nRecuerda que R es un software libre por eso otorga a los usuarios la libertad de usar, estudiar, modificar y distribuir el código fuente. Estas libertades permiten colaboración y mejora continua del software por parte de la comunidad.",
     "crumbs": [
       "Instalación de software"
     ]
