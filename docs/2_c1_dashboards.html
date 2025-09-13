@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Christian Chiroque Ruiz">
 
-<title>R para Ciencias Sociales y Gestión Pública</title>
+<title>R para Ciencias Sociales y Gestión Pública - 5&nbsp; Quarto dashboards</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./c0_programas.html" rel="next">
+<link href="./2_c2_shiny.html" rel="next">
+<link href="./c4_transformacion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Sobre el curso</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_c1_dashboards.html">R Intermedio</a></li><li class="breadcrumb-item"><a href="./2_c1_dashboards.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto dashboards</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sobre el curso</span></a>
   </div>
 </li>
@@ -169,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_c1_dashboards.html" class="sidebar-item-text sidebar-link">
+  <a href="./2_c1_dashboards.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto dashboards</span></span></a>
   </div>
 </li>
@@ -197,9 +197,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#sobre-el-curso" id="toc-sobre-el-curso" class="nav-link active" data-scroll-target="#sobre-el-curso">Sobre el curso</a>
+  <li><a href="#qué-es-un-dashboard" id="toc-qué-es-un-dashboard" class="nav-link active" data-scroll-target="#qué-es-un-dashboard"><span class="header-section-number">5.1</span> ¿Qué es un dashboard?</a></li>
+  <li><a href="#tipos-de-dashboard" id="toc-tipos-de-dashboard" class="nav-link" data-scroll-target="#tipos-de-dashboard"><span class="header-section-number">5.2</span> Tipos de dashboard</a></li>
+  <li><a href="#pasos-para-crear-un-dashboard-estático" id="toc-pasos-para-crear-un-dashboard-estático" class="nav-link" data-scroll-target="#pasos-para-crear-un-dashboard-estático"><span class="header-section-number">5.3</span> Pasos para crear un dashboard estático</a>
   <ul class="collapse">
-  <li><a href="#sobre-trabajo-final" id="toc-sobre-trabajo-final" class="nav-link" data-scroll-target="#sobre-trabajo-final">Sobre trabajo final</a></li>
+  <li><a href="#crear-el-entorno-de-trabajo" id="toc-crear-el-entorno-de-trabajo" class="nav-link" data-scroll-target="#crear-el-entorno-de-trabajo"><span class="header-section-number">5.3.1</span> 1. Crear el entorno de trabajo</a></li>
+  <li><a href="#configurar-el-tipo-de-documento" id="toc-configurar-el-tipo-de-documento" class="nav-link" data-scroll-target="#configurar-el-tipo-de-documento"><span class="header-section-number">5.3.2</span> 2. Configurar el tipo de documento</a></li>
+  <li><a href="#barra-de-navegación" id="toc-barra-de-navegación" class="nav-link" data-scroll-target="#barra-de-navegación"><span class="header-section-number">5.3.3</span> 3. Barra de navegación</a></li>
+  <li><a href="#agregar-un-logo-institucional" id="toc-agregar-un-logo-institucional" class="nav-link" data-scroll-target="#agregar-un-logo-institucional"><span class="header-section-number">5.3.4</span> 4. Agregar un logo institucional</a></li>
+  <li><a href="#crear-páginas-módulos" id="toc-crear-páginas-módulos" class="nav-link" data-scroll-target="#crear-páginas-módulos"><span class="header-section-number">5.3.5</span> 5. Crear páginas (módulos)</a></li>
+  <li><a href="#diseñar-el-layout" id="toc-diseñar-el-layout" class="nav-link" data-scroll-target="#diseñar-el-layout"><span class="header-section-number">5.3.6</span> 6. Diseñar el layout</a></li>
+  <li><a href="#sidebar-barra-lateral" id="toc-sidebar-barra-lateral" class="nav-link" data-scroll-target="#sidebar-barra-lateral"><span class="header-section-number">5.3.7</span> 7. Sidebar (barra lateral)</a></li>
+  <li><a href="#agregar-contenido-con-tarjetas-cards" id="toc-agregar-contenido-con-tarjetas-cards" class="nav-link" data-scroll-target="#agregar-contenido-con-tarjetas-cards"><span class="header-section-number">5.3.8</span> 8. Agregar contenido con tarjetas (cards)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -207,28 +216,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_c1_dashboards.html">R Intermedio</a></li><li class="breadcrumb-item"><a href="./2_c1_dashboards.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto dashboards</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">R para Ciencias Sociales y Gestión Pública</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto dashboards</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Christian Chiroque Ruiz </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">13 de septiembre de 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -238,20 +235,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="sobre-el-curso" class="level1 unnumbered">
-<h1 class="unnumbered">Sobre el curso</h1>
-<p>¡Bienvenidos al curso de Fundamentos de R para Ciencias Sociales y Gestión Pública!</p>
-<p>Este curso está diseñado para ofrecer una introducción al uso del software R desde la perspectiva de la ciencia de datos. A lo largo del curso, trabajaremos en tres ejes principales:</p>
-<ol type="1">
-<li><p>Fundamentos de programación en R: Aquí aprenderemos las definiciones y los fundamentos de programación que sustentan el funcionamiento del software R y los distintos algoritmos que utilizaremos.</p></li>
-<li><p>Herramientas para la manipulación de datos: En este eje, nos enfocaremos en la obtención, manipulación y transformación de datos, esenciales para trabajar con información de manera eficiente.</p></li>
-<li><p>Visualización de datos y reportes analíticos: Finalmente, estudiaremos los fundamentos para la visualización de datos y la elaboración de reportes analíticos, permitiéndonos comunicar nuestros hallazgos de manera clara y efectiva.</p></li>
-</ol>
-<p>Puedes leer el detalle del contenido en el sílabo del curso colgado en la plataforma del Diplomado.</p>
-<iframe src="files/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
-<section id="sobre-trabajo-final" class="level2">
-<h2 class="anchored" data-anchor-id="sobre-trabajo-final">Sobre trabajo final</h2>
-<iframe src="files/trabajo_grupal.pdf" width="700" height="500" style="border: none;"></iframe>
+<section id="qué-es-un-dashboard" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="qué-es-un-dashboard"><span class="header-section-number">5.1</span> ¿Qué es un dashboard?</h2>
+<p>Un dashboard (o tablero de control) es una herramienta visual que concentra en una sola pantalla los indicadores, métricas y datos más importantes de un proceso, área o proyecto. Su objetivo es ofrecer una visión clara, resumida y rápida del estado de la información, permitiendo tomar decisiones informadas sin necesidad de revisar reportes extensos.</p>
+<p>Características principales</p>
+<ul>
+<li><p>Visualización: utiliza gráficos, tablas, mapas o indicadores numéricos fáciles de interpretar.</p></li>
+<li><p>Síntesis: muestra lo más relevante; no todo el detalle, sino lo esencial para el seguimiento.</p></li>
+<li><p>Interactividad: en muchos casos permite filtrar, explorar y profundizar en la información.</p></li>
+<li><p>Actualización: suele estar conectado a bases de datos o fuentes en tiempo real o periódicas.</p></li>
+</ul>
+</section>
+<section id="tipos-de-dashboard" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="tipos-de-dashboard"><span class="header-section-number">5.2</span> Tipos de dashboard</h2>
+<p>📊 Dashboard estático</p>
+<p><strong>Qué es</strong>: muestra información fija en un momento determinado. Se construye a partir de un dataset cerrado y no cambia a menos que se vuelva a generar manualmente.</p>
+<p><strong>Características</strong>:</p>
+<ul>
+<li><p>No se actualiza automáticamente.</p></li>
+<li><p>Sirve como un reporte visual (ej. un PDF o una presentación con gráficos).</p></li>
+<li><p>Ideal para análisis que no requieren cambios frecuentes.</p></li>
+</ul>
+<p>⚡ Dashboard dinámico</p>
+<p><strong>Qué es</strong>: está conectado a una o varias fuentes de datos y se actualiza en tiempo real o cada cierto intervalo. Permite la interacción del usuario.</p>
+<p><strong>Características</strong>:</p>
+<p>Se actualiza automáticamente (en tiempo real o con actualizaciones programadas).</p>
+<p>El usuario puede filtrar, explorar y profundizar en los datos.</p>
+<p>Útil para la toma de decisiones en vivo.</p>
+<p>Ejemplo: un dashboard en R Shiny, Qlik Sense o Power BI donde puedes filtrar por fechas, regiones o productos y los gráficos se ajustan al instante.</p>
+</section>
+<section id="pasos-para-crear-un-dashboard-estático" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="pasos-para-crear-un-dashboard-estático"><span class="header-section-number">5.3</span> Pasos para crear un dashboard estático</h2>
+<p>Los dashboards en Quarto permiten organizar y visualizar información en un formato web accesible y bien estructurado. A diferencia de los dashboards dinámicos (como los que se construyen en Shiny), un dashboard estático en Quarto no se conecta en tiempo real a los datos ni permite interacción compleja, pero es ideal para presentar reportes reproducibles, con navegación clara y un diseño profesional.</p>
+<section id="crear-el-entorno-de-trabajo" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="crear-el-entorno-de-trabajo"><span class="header-section-number">5.3.1</span> 1. Crear el entorno de trabajo</h3>
+<p>Primero debemos crear un proyecto Quarto. Esto es recomendable porque:</p>
+<ul>
+<li><p>Mantiene todos los archivos organizados en una misma carpeta.</p></li>
+<li><p>Facilita la reutilización de recursos (imágenes, hojas de estilo, logos).</p></li>
+<li><p>Permite renderizar el dashboard sin conflictos de rutas de archivos.</p></li>
+</ul>
+</section>
+<section id="configurar-el-tipo-de-documento" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="configurar-el-tipo-de-documento"><span class="header-section-number">5.3.2</span> 2. Configurar el tipo de documento</h3>
+<p>En el archivo principal (.qmd), editamos el encabezado YAML para indicar que deseamos un dashboard como formato de salida:</p>
+<p><strong>title: “Mi Dashboard”</strong></p>
+<p><strong>format: dashboard</strong></p>
+<p>Esto asegura que Quarto renderice el documento con la estructura y componentes propios de un panel de control.</p>
+</section>
+<section id="barra-de-navegación" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="barra-de-navegación"><span class="header-section-number">5.3.3</span> 3. Barra de navegación</h3>
+<p>Al ejecutar el documento, Quarto genera automáticamente una barra de navegación en blanco. Esta barra es clave porque permite al usuario desplazarse entre secciones o páginas del dashboard.</p>
+<ul>
+<li><p>Puede incluir enlaces, menús desplegables o íconos.</p></li>
+<li><p>Mejora la experiencia del usuario, al facilitar el acceso a diferentes áreas de datos o visualizaciones.</p></li>
+</ul>
+</section>
+<section id="agregar-un-logo-institucional" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="agregar-un-logo-institucional"><span class="header-section-number">5.3.4</span> 4. Agregar un logo institucional</h3>
+<p>Es posible personalizar el encabezado del dashboard incluyendo un logo. Para ello:</p>
+<ul>
+<li><p>Coloca la imagen en la carpeta del proyecto.</p></li>
+<li><p>Haz referencia a ella desde el YAML.</p></li>
+</ul>
+<p>Esto le da identidad institucional al documento y profesionaliza la presentación.</p>
+</section>
+<section id="crear-páginas-módulos" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="crear-páginas-módulos"><span class="header-section-number">5.3.5</span> 5. Crear páginas (módulos)</h3>
+<p>Cada página corresponde a una sección temática dentro del dashboard. Se definen con un encabezado de nivel 1:</p>
+<p><strong># Nombre de la página</strong></p>
+<p>Esto permite organizar el panel en módulos independientes (ej. “Análisis descriptivo”, “Modelos predictivos”, “Conclusiones”), facilitando la navegación.</p>
+</section>
+<section id="diseñar-el-layout" class="level3" data-number="5.3.6">
+<h3 data-number="5.3.6" class="anchored" data-anchor-id="diseñar-el-layout"><span class="header-section-number">5.3.6</span> 6. Diseñar el layout</h3>
+<p>El layout es la disposición de los elementos dentro de cada página (gráficos, tablas, texto). Una buena organización asegura que la información sea clara y fácil de interpretar.</p>
+<ul>
+<li><p>Dentro de una página, los encabezados de nivel 2 (##) crean filas.</p></li>
+<li><p>En cada fila puedes ubicar contenido en columnas, tarjetas u otros elementos.</p></li>
+</ul>
+<p>💡 Sugerencia: antes de escribir código, piensa cómo deseas que se organice la información.</p>
+</section>
+<section id="sidebar-barra-lateral" class="level3" data-number="5.3.7">
+<h3 data-number="5.3.7" class="anchored" data-anchor-id="sidebar-barra-lateral"><span class="header-section-number">5.3.7</span> 7. Sidebar (barra lateral)</h3>
+<p>El sidebar es una barra que aparece en uno de los lados del dashboard:</p>
+<ul>
+<li><p>En un dashboard estático, se utiliza principalmente para mostrar información adicional o enlaces.</p></li>
+<li><p>En un dashboard dinámico (Shiny), el sidebar sirve como área de interacción: filtros, selectores o controles que modifican el contenido en tiempo real.</p></li>
+</ul>
+</section>
+<section id="agregar-contenido-con-tarjetas-cards" class="level3" data-number="5.3.8">
+<h3 data-number="5.3.8" class="anchored" data-anchor-id="agregar-contenido-con-tarjetas-cards"><span class="header-section-number">5.3.8</span> 8. Agregar contenido con tarjetas (cards)</h3>
+<p>Las cards son bloques visuales que permiten resumir información de manera compacta.</p>
+<ul>
+<li><p>Pueden contener cifras clave, gráficos pequeños o texto breve.</p></li>
+<li><p>Destacan datos importantes de un vistazo.</p></li>
+<li><p>Mejoran la legibilidad al estructurar la información en secciones bien delimitadas.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los dashboards en Quarto son estáticos por defecto. Si necesitas interactividad avanzada (inputs, filtros, actualización dinámica de gráficos), debes combinar Quarto con Shiny o integrar elementos HTML/JS.</p>
+</div>
+</div>
 
 
 </section>
@@ -786,10 +878,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./c4_transformacion.html" class="pagination-link  aria-label=" &lt;span="" de="" tablas="" y="" otros&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Transformación de tablas y otros</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./c0_programas.html" class="pagination-link" aria-label="Instalación de software">
-        <span class="nav-page-text">Instalación de software</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./2_c2_shiny.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Dashboard dinámico con Quarto y Shiny</span>">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dashboard dinámico con Quarto y Shiny</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

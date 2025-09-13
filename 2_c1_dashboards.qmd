@@ -1,0 +1,125 @@
+# Quarto dashboards
+
+## ¿Qué es un dashboard?
+
+Un dashboard (o tablero de control) es una herramienta visual que concentra en una sola pantalla los indicadores, métricas y datos más importantes de un proceso, área o proyecto. Su objetivo es ofrecer una visión clara, resumida y rápida del estado de la información, permitiendo tomar decisiones informadas sin necesidad de revisar reportes extensos.
+
+Características principales
+
+-   Visualización: utiliza gráficos, tablas, mapas o indicadores numéricos fáciles de interpretar.
+
+-   Síntesis: muestra lo más relevante; no todo el detalle, sino lo esencial para el seguimiento.
+
+-   Interactividad: en muchos casos permite filtrar, explorar y profundizar en la información.
+
+-   Actualización: suele estar conectado a bases de datos o fuentes en tiempo real o periódicas.
+
+## Tipos de dashboard
+
+📊 Dashboard estático
+
+**Qué es**: muestra información fija en un momento determinado. Se construye a partir de un dataset cerrado y no cambia a menos que se vuelva a generar manualmente.
+
+**Características**:
+
+-   No se actualiza automáticamente.
+
+-   Sirve como un reporte visual (ej. un PDF o una presentación con gráficos).
+
+-   Ideal para análisis que no requieren cambios frecuentes.
+
+⚡ Dashboard dinámico
+
+**Qué es**: está conectado a una o varias fuentes de datos y se actualiza en tiempo real o cada cierto intervalo. Permite la interacción del usuario.
+
+**Características**:
+
+Se actualiza automáticamente (en tiempo real o con actualizaciones programadas).
+
+El usuario puede filtrar, explorar y profundizar en los datos.
+
+Útil para la toma de decisiones en vivo.
+
+Ejemplo: un dashboard en R Shiny, Qlik Sense o Power BI donde puedes filtrar por fechas, regiones o productos y los gráficos se ajustan al instante.
+
+## Pasos para crear un dashboard estático
+
+Los dashboards en Quarto permiten organizar y visualizar información en un formato web accesible y bien estructurado. A diferencia de los dashboards dinámicos (como los que se construyen en Shiny), un dashboard estático en Quarto no se conecta en tiempo real a los datos ni permite interacción compleja, pero es ideal para presentar reportes reproducibles, con navegación clara y un diseño profesional.
+
+### 1. Crear el entorno de trabajo
+
+Primero debemos crear un proyecto Quarto. Esto es recomendable porque:
+
+-   Mantiene todos los archivos organizados en una misma carpeta.
+
+-   Facilita la reutilización de recursos (imágenes, hojas de estilo, logos).
+
+-   Permite renderizar el dashboard sin conflictos de rutas de archivos.
+
+### 2. Configurar el tipo de documento
+
+En el archivo principal (.qmd), editamos el encabezado YAML para indicar que deseamos un dashboard como formato de salida:
+
+**title: "Mi Dashboard"**
+
+**format: dashboard**
+
+Esto asegura que Quarto renderice el documento con la estructura y componentes propios de un panel de control.
+
+### 3. Barra de navegación
+
+Al ejecutar el documento, Quarto genera automáticamente una barra de navegación en blanco. Esta barra es clave porque permite al usuario desplazarse entre secciones o páginas del dashboard.
+
+-   Puede incluir enlaces, menús desplegables o íconos.
+
+-   Mejora la experiencia del usuario, al facilitar el acceso a diferentes áreas de datos o visualizaciones.
+
+### 4. Agregar un logo institucional
+
+Es posible personalizar el encabezado del dashboard incluyendo un logo. Para ello:
+
+-   Coloca la imagen en la carpeta del proyecto.
+
+-   Haz referencia a ella desde el YAML.
+
+Esto le da identidad institucional al documento y profesionaliza la presentación.
+
+### 5. Crear páginas (módulos)
+
+Cada página corresponde a una sección temática dentro del dashboard. Se definen con un encabezado de nivel 1:
+
+**\# Nombre de la página**
+
+Esto permite organizar el panel en módulos independientes (ej. “Análisis descriptivo”, “Modelos predictivos”, “Conclusiones”), facilitando la navegación.
+
+### 6. Diseñar el layout
+
+El layout es la disposición de los elementos dentro de cada página (gráficos, tablas, texto). Una buena organización asegura que la información sea clara y fácil de interpretar.
+
+-   Dentro de una página, los encabezados de nivel 2 (##) crean filas.
+
+-   En cada fila puedes ubicar contenido en columnas, tarjetas u otros elementos.
+
+💡 Sugerencia: antes de escribir código, piensa cómo deseas que se organice la información.
+
+### 7. Sidebar (barra lateral)
+
+El sidebar es una barra que aparece en uno de los lados del dashboard:
+
+-   En un dashboard estático, se utiliza principalmente para mostrar información adicional o enlaces.
+
+-   En un dashboard dinámico (Shiny), el sidebar sirve como área de interacción: filtros, selectores o controles que modifican el contenido en tiempo real.
+
+### 8. Agregar contenido con tarjetas (cards)
+
+Las cards son bloques visuales que permiten resumir información de manera compacta.
+
+-   Pueden contener cifras clave, gráficos pequeños o texto breve.
+
+-   Destacan datos importantes de un vistazo.
+
+-   Mejoran la legibilidad al estructurar la información en secciones bien delimitadas.
+
+::: callout-warning
+Los dashboards en Quarto son estáticos por defecto. Si necesitas interactividad avanzada (inputs, filtros, actualización dinámica de gráficos), debes combinar Quarto con Shiny o integrar elementos HTML/JS.
+:::

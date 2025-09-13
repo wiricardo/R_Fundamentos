@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Christian Chiroque Ruiz">
 
-<title>R para Ciencias Sociales y Gestión Pública</title>
+<title>R para Ciencias Sociales y Gestión Pública - 6&nbsp; Dashboard dinámico con Quarto y Shiny</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./c0_programas.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./2_c1_dashboards.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Sobre el curso</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_c1_dashboards.html">R Intermedio</a></li><li class="breadcrumb-item"><a href="./2_c2_shiny.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dashboard dinámico con Quarto y Shiny</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sobre el curso</span></a>
   </div>
 </li>
@@ -175,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_c2_shiny.html" class="sidebar-item-text sidebar-link">
+  <a href="./2_c2_shiny.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dashboard dinámico con Quarto y Shiny</span></span></a>
   </div>
 </li>
@@ -197,9 +197,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#sobre-el-curso" id="toc-sobre-el-curso" class="nav-link active" data-scroll-target="#sobre-el-curso">Sobre el curso</a>
+  <li><a href="#por-qué-shiny" id="toc-por-qué-shiny" class="nav-link active" data-scroll-target="#por-qué-shiny"><span class="header-section-number">6.1</span> ¿Por qué Shiny?</a></li>
+  <li><a href="#estructura" id="toc-estructura" class="nav-link" data-scroll-target="#estructura"><span class="header-section-number">6.2</span> Estructura</a>
   <ul class="collapse">
-  <li><a href="#sobre-trabajo-final" id="toc-sobre-trabajo-final" class="nav-link" data-scroll-target="#sobre-trabajo-final">Sobre trabajo final</a></li>
+  <li><a href="#interfaz-de-usuario-ui" id="toc-interfaz-de-usuario-ui" class="nav-link" data-scroll-target="#interfaz-de-usuario-ui"><span class="header-section-number">6.2.1</span> Interfaz de usuario (UI)</a></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server"><span class="header-section-number">6.2.2</span> Server</a></li>
+  <li><a href="#relación-iu---server" id="toc-relación-iu---server" class="nav-link" data-scroll-target="#relación-iu---server"><span class="header-section-number">6.2.3</span> Relación IU - Server</a></li>
+  </ul></li>
+  <li><a href="#pasos-para-crear-un-dashboard-dinámico" id="toc-pasos-para-crear-un-dashboard-dinámico" class="nav-link" data-scroll-target="#pasos-para-crear-un-dashboard-dinámico"><span class="header-section-number">6.3</span> Pasos para crear un dashboard dinámico</a>
+  <ul class="collapse">
+  <li><a href="#previsualiza-tu-dashboard" id="toc-previsualiza-tu-dashboard" class="nav-link" data-scroll-target="#previsualiza-tu-dashboard"><span class="header-section-number">6.3.1</span> 1. Previsualiza tu dashboard</a></li>
+  <li><a href="#diseña-tu-dashboard" id="toc-diseña-tu-dashboard" class="nav-link" data-scroll-target="#diseña-tu-dashboard"><span class="header-section-number">6.3.2</span> 2. Diseña tu dashboard</a></li>
+  <li><a href="#cargar-la-data" id="toc-cargar-la-data" class="nav-link" data-scroll-target="#cargar-la-data"><span class="header-section-number">6.3.3</span> 2. Cargar la data</a></li>
+  <li><a href="#generar-los-input" id="toc-generar-los-input" class="nav-link" data-scroll-target="#generar-los-input"><span class="header-section-number">6.3.4</span> 3. Generar los input</a></li>
+  <li><a href="#generar-el-servidor-y-los-outputs" id="toc-generar-el-servidor-y-los-outputs" class="nav-link" data-scroll-target="#generar-el-servidor-y-los-outputs"><span class="header-section-number">6.3.5</span> 4. Generar el servidor y los outputs</a></li>
+  <li><a href="#crear-la-interfaz-de-usuario" id="toc-crear-la-interfaz-de-usuario" class="nav-link" data-scroll-target="#crear-la-interfaz-de-usuario"><span class="header-section-number">6.3.6</span> 5. Crear la interfaz de usuario</a></li>
+  <li><a href="#despliegue-del-dashboard" id="toc-despliegue-del-dashboard" class="nav-link" data-scroll-target="#despliegue-del-dashboard"><span class="header-section-number">6.3.7</span> 6. Despliegue del dashboard</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -207,28 +220,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_c1_dashboards.html">R Intermedio</a></li><li class="breadcrumb-item"><a href="./2_c2_shiny.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dashboard dinámico con Quarto y Shiny</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">R para Ciencias Sociales y Gestión Pública</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dashboard dinámico con Quarto y Shiny</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Christian Chiroque Ruiz </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">13 de septiembre de 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -238,20 +239,261 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="sobre-el-curso" class="level1 unnumbered">
-<h1 class="unnumbered">Sobre el curso</h1>
-<p>¡Bienvenidos al curso de Fundamentos de R para Ciencias Sociales y Gestión Pública!</p>
-<p>Este curso está diseñado para ofrecer una introducción al uso del software R desde la perspectiva de la ciencia de datos. A lo largo del curso, trabajaremos en tres ejes principales:</p>
-<ol type="1">
-<li><p>Fundamentos de programación en R: Aquí aprenderemos las definiciones y los fundamentos de programación que sustentan el funcionamiento del software R y los distintos algoritmos que utilizaremos.</p></li>
-<li><p>Herramientas para la manipulación de datos: En este eje, nos enfocaremos en la obtención, manipulación y transformación de datos, esenciales para trabajar con información de manera eficiente.</p></li>
-<li><p>Visualización de datos y reportes analíticos: Finalmente, estudiaremos los fundamentos para la visualización de datos y la elaboración de reportes analíticos, permitiéndonos comunicar nuestros hallazgos de manera clara y efectiva.</p></li>
-</ol>
-<p>Puedes leer el detalle del contenido en el sílabo del curso colgado en la plataforma del Diplomado.</p>
-<iframe src="files/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
-<section id="sobre-trabajo-final" class="level2">
-<h2 class="anchored" data-anchor-id="sobre-trabajo-final">Sobre trabajo final</h2>
-<iframe src="files/trabajo_grupal.pdf" width="700" height="500" style="border: none;"></iframe>
+<p>En la clase pasada exploramos Quarto dashboards estáticos, donde aprendimos a estructurar un panel con páginas, barra de navegación, sidebar y cards. Vimos que este tipo de dashboards son muy útiles para presentar reportes reproducibles y bien organizados, pero tienen una limitación importante: la información se muestra tal cual, sin posibilidad de que el usuario interactúe con ella.</p>
+<p>Hoy avanzaremos al siguiente nivel: los dashboards dinámicos con Quarto y Shiny.</p>
+<p><img src="images/shiny1.png" class="img-fluid"></p>
+<section id="por-qué-shiny" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="por-qué-shiny"><span class="header-section-number">6.1</span> ¿Por qué Shiny?</h2>
+<p>Shiny es un paquete desarrollado por RStudio (ahora Posit) que fue lanzado en 2012 con el objetivo de acercar el poder de R a un entorno web. Antes de Shiny, quienes querían compartir resultados interactivos debían exportar los gráficos o programar en otros lenguajes (HTML, JavaScript), lo que hacía el proceso más complejo y menos accesible para usuarios de R.</p>
+<p>Con Shiny se introdujo un marco que permite:</p>
+<ul>
+<li><p>Construir aplicaciones web directamente desde R, sin necesidad de aprender lenguajes adicionales.</p></li>
+<li><p>Crear interfaces interactivas donde el usuario puede manipular inputs (desplegables, sliders, botones).</p></li>
+<li><p>Conectar esos inputs con outputs reactivos, que actualizan automáticamente gráficos, tablas o modelos estadísticos.</p></li>
+</ul>
+<p>Su popularidad creció rápidamente en la comunidad de ciencia de datos y análisis aplicado, porque abrió la posibilidad de pasar de un análisis reproducible en R a una herramienta interactiva lista para la toma de decisiones o la enseñanza.</p>
+<p>Hoy Shiny se integra fácilmente con Quarto, lo que permite combinar la estructura clara de documentos reproducibles con la interactividad de aplicaciones web.</p>
+<p><img src="images/shiny2.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Te recomiendo leer el libro “Mastering Shiny”, sobre todo la parte de fundamentos, la cual también es importante al manipular shiny dashboards con Quarto!</p>
+</div>
+</div>
+</section>
+<section id="estructura" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="estructura"><span class="header-section-number">6.2</span> Estructura</h2>
+<section id="interfaz-de-usuario-ui" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="interfaz-de-usuario-ui"><span class="header-section-number">6.2.1</span> Interfaz de usuario (UI)</h3>
+<p>La UI define cómo se ve el dashboard y cómo el usuario puede interactuar con él. Aquí decides la estructura visual:</p>
+<ul>
+<li><p>Dónde estarán los menús, sliders, botones o selectores.</p></li>
+<li><p>Cómo se organizan las páginas, columnas o secciones del panel.</p></li>
+<li><p>Qué tipo de elementos visuales se van a mostrar: gráficos, tablas, texto, indicadores.</p></li>
+</ul>
+<p><img src="images/shiny3.png" class="img-fluid"></p>
+<p>En términos sencillos, la UI es como el tablero de control de un auto: el velocímetro, los botones, las luces y palancas. El usuario no necesita ver cómo funcionan los sensores internos, solo necesita tenerlos a la vista y poder manipularlos.</p>
+</section>
+<section id="server" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="server"><span class="header-section-number">6.2.2</span> Server</h3>
+<p>El server es la parte lógica y funcional del dashboard. Aquí defines qué debe pasar cuando el usuario interactúa con la UI:</p>
+<ul>
+<li><p>Si el usuario mueve un slider, el server actualiza el gráfico en consecuencia.</p></li>
+<li><p>Si el usuario selecciona un filtro, el server procesa los datos para mostrar solo lo relevante.</p></li>
+<li><p>Si el usuario presiona un botón, el server ejecuta el cálculo o la acción indicada.</p></li>
+</ul>
+<p><img src="images/shiny4.png" class="img-fluid"></p>
+<p>El server es como el motor del auto: recibe las órdenes (pisar el acelerador, girar el volante) y genera la respuesta (acelerar, girar las ruedas). El usuario no ve directamente el motor, pero sin él el tablero no tendría utilidad.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La separación entre UI y Server es fundamental para comprender cómo funciona Shiny. Aunque al inicio puede parecer una división técnica, en realidad refleja una lógica muy clara: lo que el usuario ve e interactúa (UI) está siempre respaldado por un proceso de cálculo y respuesta (Server).</p>
+</div>
+</div>
+</section>
+<section id="relación-iu---server" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="relación-iu---server"><span class="header-section-number">6.2.3</span> Relación IU - Server</h3>
+<p>La correspondencia entre la interfaz de usuario (UI) y el servidor (server) es fundamental en un dashboard con Shiny. Cada elemento que se crea en la UI —un gráfico, una tabla o un texto de salida— debe tener un nombre único que coincida con el definido en el server, y viceversa. Si en la UI mostramos un plotOutput(“ventas”), en el server debemos tener un renderPlot({…}) asociado a output$ventas. Esta relación uno a uno garantiza que lo que el usuario ve en pantalla esté conectado con la lógica que procesa los datos en segundo plano. Mantener esta coherencia no solo evita errores, sino que también asegura que la aplicación sea clara, ordenada y fácil de mantener o escalar.</p>
+<p><img src="images/shiny5.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="pasos-para-crear-un-dashboard-dinámico" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="pasos-para-crear-un-dashboard-dinámico"><span class="header-section-number">6.3</span> Pasos para crear un dashboard dinámico</h2>
+<p>A diferencia de los dashboards estáticos, un dashboard con Quarto + Shiny permite que el usuario interactúe con los datos en tiempo real. Para organizar su construcción de manera ordenada, seguiremos cinco pasos principales:</p>
+<section id="previsualiza-tu-dashboard" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="previsualiza-tu-dashboard"><span class="header-section-number">6.3.1</span> 1. Previsualiza tu dashboard</h3>
+<p>Antes de escribir código, es importante planificar la estructura del dashboard, al igual que hicimos en la clase pasada:</p>
+<ul>
+<li>Diseñar el layout: definir si nuestro dashboard tendrá una barra lateral (sidebar), cuántas páginas contendrá y cómo se organizarán las secciones (por ejemplo, columnas con gráficos a la izquierda y tablas a la derecha). Pensar en términos de navegación (qué temas tendrá cada página) y de presentación (qué elementos queremos destacar).</li>
+</ul>
+<p><img src="images/shiny6.jpg" class="img-fluid"></p>
+<ul>
+<li>Crear un proyecto interactivo con Quarto: esto nos asegura que todos los archivos, imágenes y recursos estén centralizados y listos para ser renderizados.</li>
+</ul>
+<p><img src="images/shiny7.png" class="img-fluid"></p>
+</section>
+<section id="diseña-tu-dashboard" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="diseña-tu-dashboard"><span class="header-section-number">6.3.2</span> 2. Diseña tu dashboard</h3>
+<p>Para nuestro ejemplo vamos a concebir un dashboard con la siguiente estructura:</p>
+<p><img src="images/shiny8.jpg" class="img-fluid"></p>
+<p>Entonces debemos</p>
+<p><img src="images/shiny9.png" class="img-fluid"></p>
+</section>
+<section id="cargar-la-data" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="cargar-la-data"><span class="header-section-number">6.3.3</span> 2. Cargar la data</h3>
+<p>La carga de datos debe hacerse en un bloque especial llamado context: setup, que se ejecuta una sola vez al inicio y queda disponible para toda la aplicación.</p>
+<ul>
+<li><p>Aquí importamos librerías (library(…)), cargamos bases de datos (read.csv(), readRDS(), etc.) y definimos funciones auxiliares.</p></li>
+<li><p>Separar esta parte es importante porque nos ayuda a distinguir qué es preparación global (datos que no cambian) y qué será interactivo (lo que reacciona a los inputs del usuario).</p></li>
+</ul>
+<p><img src="images/shiny10.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recuerda colocar #| context:setup al inicio del chunk global</p>
+</div>
+</div>
+</section>
+<section id="generar-los-input" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="generar-los-input"><span class="header-section-number">6.3.4</span> 3. Generar los input</h3>
+<p>Los inputs en un dashboard de Shiny son elementos de la interfaz de usuario que permiten a los usuarios enviar datos o ajustar parámetros para interactuar con la aplicación. Generalmente (no siempre) van en el sidebar, pero pueden ubicarse también dentro de las páginas.</p>
+<p>Estos pueden incluir controles como cuadros de texto, deslizadores, botones y menús desplegables.</p>
+<p><img src="images/shiny11.png" class="img-fluid"> <a href="https://gallery.shinyapps.io/081-widgets-gallery/">https://gallery.shinyapps.io/081-widgets-gallery/</a></p>
+<p>Los inputs son esenciales para crear dashboards interactivos, ya que permiten a los usuarios personalizar la visualización de los datos y las análisis realizados por el servidor de Shiny en tiempo real.</p>
+<p>Tipos comunes de inputs en Shiny:</p>
+<section id="sliderinput" class="level4" data-number="6.3.4.1">
+<h4 data-number="6.3.4.1" class="anchored" data-anchor-id="sliderinput"><span class="header-section-number">6.3.4.1</span> <strong>sliderInput():</strong></h4>
+<p>Crea una barra deslizante para seleccionar un valor numérico o un rango. Para generarlo se sigue la siguiente estructura:</p>
+<p><img src="images/shiny12.png" class="img-fluid"></p>
+<p>Para nuestro ejemplo vamos a generar:</p>
+<p><img src="images/shiny13.png" class="img-fluid"></p>
+</section>
+<section id="selectinput" class="level4" data-number="6.3.4.2">
+<h4 data-number="6.3.4.2" class="anchored" data-anchor-id="selectinput"><span class="header-section-number">6.3.4.2</span> <strong>selectInput():</strong></h4>
+<p>Este widget crea un menú desplegable que permite a los usuarios elegir una única opción de una lista predefinida.</p>
+<p>Es útil para filtrar datos o configurar parámetros específicos dentro de la aplicación Shiny.</p>
+<p>Tener en cuenta que en el argumento choices puedes colocar c(“opcion1”, “opcion2”) o también el nombre de una lista que hayas creado antes.</p>
+<p>Para generarlo se sigue la siguiente estructura:</p>
+<p><img src="images/shiny14.png" class="img-fluid"></p>
+<p>Para nuestro ejemplo vamos a generar:</p>
+<p><img src="images/shiny15.png" class="img-fluid"></p>
+</section>
+<section id="checkboxgroupinput" class="level4" data-number="6.3.4.3">
+<h4 data-number="6.3.4.3" class="anchored" data-anchor-id="checkboxgroupinput"><span class="header-section-number">6.3.4.3</span> <strong>checkboxGroupInput():</strong></h4>
+<p>Genera un grupo de casillas de verificación, permitiendo a los usuarios seleccionar múltiples opciones de un conjunto. Este widget es ideal para aplicaciones que requieren selecciones múltiples y no excluyentes.</p>
+<p>Tener en cuenta que en el argumento choices puedes colocar c(“opcion1”, “opcion2”) o también el nombre de una lista que hayas creado antes.</p>
+<p><img src="images/shiny16.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cada input genera un objeto reactivo que se usará luego en el servidor para filtrar datos o actualizar gráficos.</p>
+</div>
+</div>
+<p>Para nuestro ejemplo vamos a generar:</p>
+<p><img src="images/shiny17.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="generar-el-servidor-y-los-outputs" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="generar-el-servidor-y-los-outputs"><span class="header-section-number">6.3.5</span> 4. Generar el servidor y los outputs</h3>
+<p>Lo colocamos al final del documento. Tiene un encabezado que dice #| context: server.</p>
+<p>Aquí vamos a colocar el código que va a generar de forma interactiva (usando los inputs) los gráficos o tablas que deseemos. Tener en cuenta que hay distintas funciones que van a renderizar outputs dependiendo de su tipo.</p>
+<p>En Quarto, esta lógica se coloca en un bloque con context: server, que se ejecuta continuamente en función de los inputs.</p>
+<ul>
+<li><p>El insumo principal del server son los objetos creados por los inputs.</p></li>
+<li><p>El resultado son los outputs (gráficos, tablas, indicadores).</p></li>
+</ul>
+<p>En nuestro caso usaremos renderPlot() y renderTable(), pero existen otras funciones:</p>
+<p><img src="images/shiny18.png" class="img-fluid"></p>
+<p>Para nosotros vamos a generar un primer plot en nuestro servidor:</p>
+<p><img src="images/shiny19.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cada output tiene un nombre (plot1).</p>
+<p>Iniciamos la construcción del output con la función pertinente (renderPlot()). En este caso vamos a generar un gráfico.</p>
+<p>Para que el gráfico sea interactivo, además de las consideraciones de siempre, debemos colocar los inputs creados anteriormente. Un paso inicial sencillo es configurar que la interacción sea con filter().</p>
+<p>Si corremos este código no se va a visibilizar nada, pues sólo se encontrará en el server.</p>
+</div>
+</div>
+</section>
+<section id="crear-la-interfaz-de-usuario" class="level3" data-number="6.3.6">
+<h3 data-number="6.3.6" class="anchored" data-anchor-id="crear-la-interfaz-de-usuario"><span class="header-section-number">6.3.6</span> 5. Crear la interfaz de usuario</h3>
+<p>Una vez definidos los inputs (ej. en el sidebar) y generados los outputs en el server, debemos mostrar esos resultados en la interfaz.</p>
+<ul>
+<li><p>La UI se encarga de colocar los gráficos, tablas o indicadores en el lugar correcto.</p></li>
+<li><p>En Quarto dashboards, esto puede hacerse directamente con encabezados y secciones, donde insertamos los outputs de Shiny con plotOutput(), tableOutput(), etc.</p></li>
+<li><p>Aquí tienes que tener en cuenta que, como te indiqué en el paso 2, ya tienes que tener tu dashboard diseñado. En otras palabras, debes tener claro dónde va a ir este gráfico al final.</p></li>
+<li><p>En cada “apartado” del layout (columna o fila, de ser el caso) vamos a “mostrar” el output que ya ha sido creado en el server anteriormente. Ten cuidado con los nombres (mayúsculas, símbolos),ya que debe ser exacto.</p></li>
+</ul>
+<p><img src="images/shiny20.png" class="img-fluid"></p>
+<p>Tener en cuenta que así como tenemos una función para generar outputs en server, también tiene su función correspondiente para presentar el output en el UI.</p>
+<p>En nuestro caso podemos generar:</p>
+<p><img src="images/shiny21.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Puedes colocarle un título al gráfico desde la misma tarjeta del Dashboard utilizando #| title:</p></li>
+<li><p>Descuida: puedes utilizar comillas simples (ALT+39, en Windows) o las comillas normales.</p></li>
+<li><p>A veces el lugar es muy pequeño para el tamaño del objeto. O viceversa. Si fuese el caso, tendrías que ajustar el tamaño.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="despliegue-del-dashboard" class="level3" data-number="6.3.7">
+<h3 data-number="6.3.7" class="anchored" data-anchor-id="despliegue-del-dashboard"><span class="header-section-number">6.3.7</span> 6. Despliegue del dashboard</h3>
+<p>El último paso es hacer que nuestro dashboard esté disponible para los usuarios. Esto se conoce como despliegue.</p>
+<p><img src="images/shiny22.jpg" class="img-fluid"></p>
+<p>Existen varias formas de hacerlo (servidores locales, RStudio Connect, Docker, etc.), pero en este curso utilizaremos shinyapps.io:</p>
+<ul>
+<li><p>Es un servicio en la nube ofrecido por Posit.</p></li>
+<li><p>Permite publicar aplicaciones Shiny directamente desde RStudio o Quarto.</p></li>
+<li><p>Solo necesitas una cuenta gratuita y ejecutar rsconnect::deployApp() para que tu dashboard esté disponible en línea.</p></li>
+</ul>
+<p><img src="images/shiny23.png" class="img-fluid"></p>
+<p>En resumen, el despliegue es el paso que convierte tu proyecto en una aplicación accesible desde cualquier navegador.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Shinyapps.io, al igual que otras aplicaciones, es un servicio de pago.</p>
+<p>Sin embargo, tiene una versión libre que te permite:</p>
+<ul>
+<li><p>Cargar tu app a la nube.</p></li>
+<li><p>Contar con un máximo de 5 aplicaciones.</p></li>
+<li><p>Te permite un uso máximo de 25 horas por mes.</p></li>
+</ul>
+<p>Tener en cuenta que tienes que instalar el paquete “rsconnect” previamente.</p>
+</div>
+</div>
 
 
 </section>
@@ -786,10 +1028,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./2_c1_dashboards.html" class="pagination-link  aria-label=" &lt;span="" dashboards&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto dashboards</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./c0_programas.html" class="pagination-link" aria-label="Instalación de software">
-        <span class="nav-page-text">Instalación de software</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Bibliografía">
+        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
