@@ -21,6 +21,7 @@ book:
       chapters: 
         - 2_c1_dashboards.qmd
         - 2_c2_shiny.qmd
+        - 2_c3_rl.qmd
 
     - references.qmd
 
