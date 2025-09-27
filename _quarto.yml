@@ -22,6 +22,7 @@ book:
         - 2_c1_dashboards.qmd
         - 2_c2_shiny.qmd
         - 2_c3_rl.qmd
+        - 2_c4_rl2.qmd
 
     - references.qmd
 
