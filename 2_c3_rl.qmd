@@ -14,7 +14,6 @@ El aprendizaje se llama “supervisado” porque el modelo tiene un “superviso
 Un **parámetro** es un valor numérico que forma parte del modelo matemático o estadístico y que determina cómo se comporta ese modelo. Los parámetros no los escogemos “a mano”, sino que el modelo los aprende de los datos.
 :::
 
-
 ## Tidymodels
 
 **tidymodels** es un conjunto de paquetes de R diseñado para facilitar el trabajo con **Machine Learning (ML)** dentro de un marco coherente y organizado. Su objetivo es estandarizar el proceso de modelado, desde la preparación de datos hasta la evaluación de resultados, utilizando la misma filosofía del **tidyverse**: funciones consistentes, sintaxis clara y un enfoque centrado en los datos como tablas (`tibbles`).
@@ -23,24 +22,23 @@ Un **parámetro** es un valor numérico que forma parte del modelo matemático o
 
 El trabajo en ML no se limita a entrenar un modelo; incluye varios pasos que deben estar bien estructurados:
 
-- **Preparación de datos**: limpieza, creación de variables y transformación de predictores.  
+-   **Preparación de datos**: limpieza, creación de variables y transformación de predictores.
 
-- **Definición del modelo**: especificar qué tipo de algoritmo se va a usar (regresión, árboles de decisión, random forest, etc.).  
+-   **Definición del modelo**: especificar qué tipo de algoritmo se va a usar (regresión, árboles de decisión, random forest, etc.).
 
-- **Entrenamiento y validación**: ajustar el modelo con los datos de entrenamiento y probarlo con datos nuevos para evitar sobreajuste. 
+-   **Entrenamiento y validación**: ajustar el modelo con los datos de entrenamiento y probarlo con datos nuevos para evitar sobreajuste.
 
-- **Evaluación**: medir el desempeño con métricas como RMSE, MAE o accuracy.  
+-   **Evaluación**: medir el desempeño con métricas como RMSE, MAE o accuracy.
 
-- **Comparación**: contrastar distintos modelos bajo un mismo flujo de trabajo.
+-   **Comparación**: contrastar distintos modelos bajo un mismo flujo de trabajo.
 
-Tidymodels organiza todo este proceso bajo un **flujo reproducible** y consistente, lo que permite:  
+Tidymodels organiza todo este proceso bajo un **flujo reproducible** y consistente, lo que permite:
 
-- Reducir errores en la preparación de datos.  
+-   Reducir errores en la preparación de datos.
 
-- Comparar modelos con facilidad.  
+-   Comparar modelos con facilidad.
 
-- Mantener el código ordenado y entendible.  
-
+-   Mantener el código ordenado y entendible.
 
 ## Regresión Lineal Simple
 
@@ -78,26 +76,24 @@ Para ello lo que hace es ajustar una línea recta (o un hiperplano, si hay varia
 
 ![](images/RL.jpg)
 
-
 ### Midiendo los errores: función de costo
 
-La función de costo es una fórmula matemática que mide qué tan bien (o mal) el modelo se ajusta a los datos.  
+La función de costo es una fórmula matemática que mide qué tan bien (o mal) el modelo se ajusta a los datos.\
 En regresión lineal, una de las más utilizadas es la **Raiz del Error Cuadrático Medio (RMSE, por sus siglas en inglés)**.
 
-**Definición:**  
+**Definición:**
 
 El RMSE mide la magnitud promedio del error en las predicciones de un modelo, penalizando más los errores grandes y expresándose en las mismas unidades de la variable de salida.
 
 ¿Qué significa?
 
--   Cada vez que el modelo predice un valor, podemos compararlo con el valor real.  
+-   Cada vez que el modelo predice un valor, podemos compararlo con el valor real.
 
 -   La función de costo resume todos esos errores en un solo número.
 
--   Ese número nos indica la “calidad” del modelo: cuanto más pequeño sea, mejor está ajustada la recta a los datos.  
+-   Ese número nos indica la “calidad” del modelo: cuanto más pequeño sea, mejor está ajustada la recta a los datos.
 
 -   El RMSE es útil porque se expresa en las **mismas unidades de la variable de salida**, lo que facilita su interpretación.
-
 
 $$
 J(\beta) = \sqrt{\frac{1}{n} \sum_{i=1}^{n} \big(y_i - \hat{y}_i\big)^2}
@@ -105,21 +101,21 @@ $$
 
 Ejemplo:
 
-Supongamos que queremos predecir la estatura de tres personas (en cm).  
+Supongamos que queremos predecir la estatura de tres personas (en cm).
 
-- Valores reales: 170, 180, 190  
+-   Valores reales: 170, 180, 190
 
-- Predicciones: 172, 177, 189  
+-   Predicciones: 172, 177, 189
 
-Errores:  
+Errores:
 
-- 170 - 172 = -2
+-   170 - 172 = -2
 
-- 180 - 177 = 3
+-   180 - 177 = 3
 
-- 190 - 189 = 1
+-   190 - 189 = 1
 
-Cálculo:  
+Cálculo:\
 $$
 RMSE = \sqrt{\frac{(-2)^2 + (3)^2 + (1)^2}{3}} = \sqrt{\tfrac{14}{3}} \approx 2.16
 $$
@@ -173,7 +169,6 @@ A partir del cuadro, podemos reconstruir una parte que falta (¿podemos “llena
 En estadística clásica y ciencias sociales, la tendencia ha sido hacia la explicación: probar teorías y entender causalidad.
 
 En machine learning aplicado la tendencia es hacia la predicción: lograr resultados prácticos aunque el modelo no sea interpretable.
-
 
 ## Una regresión paso a paso
 
